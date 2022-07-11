@@ -2,32 +2,32 @@ package array
 
 import "testing"
 
-func TestIsAnagram(t *testing.T) {
-	if !IsAnagram("dog", "god") {
+func TestIsAnagramRune(t *testing.T) {
+	if !IsAnagramRune("dog", "god") {
 		t.Error("want true, dog and god")
 	}
 }
 
-func TestIsAnagram2(t *testing.T) {
-	if IsAnagram("fish", "pirate") {
+func TestIsAnagramRune2(t *testing.T) {
+	if IsAnagramRune("fish", "pirate") {
 		t.Error("want false, fish and pirate")
 	}
 }
 
-func TestIsAnagram3(t *testing.T) {
-	if IsAnagram("aa", "bb") {
+func TestIsAnagramRune3(t *testing.T) {
+	if IsAnagramRune("aa", "bb") {
 		t.Error("want false, aa and bb")
 	}
 }
 
-func TestIsAnagram4(t *testing.T) {
-	if !IsAnagram("clint eastwood", "old west action") {
+func TestIsAnagramRune4(t *testing.T) {
+	if !IsAnagramRune("clint eastwood", "old west action") {
 		t.Error("want true, clint eastwood and old west action")
 	}
 }
 
-func TestIsAnagram5(t *testing.T) {
-	if !IsAnagram("sweep the floor", "too few helpers") {
+func TestIsAnagramRune5(t *testing.T) {
+	if !IsAnagramRune("sweep the floor", "too few helpers") {
 		t.Error("want true, sweep the floor and too few helpers")
 	}
 }
