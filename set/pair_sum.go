@@ -8,13 +8,14 @@ func IsPairSum(sl []int, num int) int {
 	}
 
 	var count int
-	set := make(map[int]bool) // set store diff value
+	set := MySet{}
 	for _, v := range sl {
 		diff := num - v
-		if IsInSet(set, diff) { // found its pair
+		if set.IsInSet(diff) { // found its pair
 			count += 1
+			fmt.Printf("(%v, %v)\n", diff, v)
 		} else {
-			AddToSet(set, v)
+			set.AddToSet(v)
 		}
 	}
 
@@ -26,11 +27,13 @@ func IsPairSum(sl []int, num int) int {
 	return count
 }
 
-func IsInSet(set map[int]bool, num int) bool {
-	_, ok := set[num]
+type MySet map[int]struct{}
+
+func (s *MySet) IsInSet(num int) bool {
+	_, ok := (*s)[num]
 	return ok
 }
 
-func AddToSet(set map[int]bool, num int) {
-	set[num] = true
+func (s *MySet) AddToSet(num int) {
+	(*s)[num] = struct{}{}
 }
