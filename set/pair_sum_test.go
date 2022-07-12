@@ -19,3 +19,10 @@ func TestIsPairSum2(t *testing.T) {
 		t.Error("want 2 but got", r)
 	}
 }
+
+func TestIsPairSum3(t *testing.T) {
+	r := IsPairSum([]int{4, 6, 2, 56, 8, 5, 1, 5, 6}, 10)
+	if r != 3 {
+		t.Error("want 3 but got", r)
+	}
+}
