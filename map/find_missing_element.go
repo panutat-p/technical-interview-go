@@ -43,37 +43,32 @@ func FindMissing2(arr1 []int, arr2 []int) int {
 	}
 	fmt.Println(m)
 
-	var result []int
 	for k, v := range m {
 		if v != 0 {
-			result = append(result, k)
+			return k
 		}
 	}
-	fmt.Println(result)
-	return result[0]
+	return math.MinInt
 }
 
 func FindMissingBruteForce(arr1 []int, arr2 []int) int {
 	for _, v := range arr1 {
-		var count int
-		for _, v2 := range arr2 {
-			if v == v2 {
-				count += 1
-			}
-		}
-
-		if !isInArray(arr2, v) {
+		idx := find(arr2, v)
+		if idx == -1 {
 			return v
+		} else {
+			arr2 = append(arr2[0:idx], arr2[idx+1:]...)
+			fmt.Println("arr2: remove", arr2[idx], "at", idx)
 		}
 	}
 	return -1
 }
 
-func isInArray(arr []int, num int) bool {
-	for _, v := range arr {
+func find(arr []int, num int) int {
+	for i, v := range arr {
 		if v == num {
-			return true
+			return i
 		}
 	}
-	return false
+	return -1
 }

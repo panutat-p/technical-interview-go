@@ -2,6 +2,7 @@ package _map
 
 import "testing"
 
+// contain duplicated element
 func TestFindMissing(t *testing.T) {
 	r := FindMissing([]int{5, 5, 7, 7}, []int{5, 7, 7})
 	if r != 5 {
@@ -17,7 +18,7 @@ func TestFindMissing2(t *testing.T) {
 }
 
 func TestFindMissingBruteForce(t *testing.T) {
-	r := FindMissing([]int{5, 5, 7, 7}, []int{5, 7, 7})
+	r := FindMissingBruteForce([]int{5, 5, 5, 5, 7, 7}, []int{5, 5, 5, 7, 7})
 	if r != 5 {
 		t.Error("want 5 but got", r)
 	}
