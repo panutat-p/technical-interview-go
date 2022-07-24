@@ -31,3 +31,9 @@ func TestIsAnagramRune5(t *testing.T) {
 		t.Error("want true, sweep the floor and too few helpers")
 	}
 }
+
+func TestIsAnagramMap(t *testing.T) {
+	if !IsAnagramMap("sweep the floor", "too few helpers") {
+		t.Error("want true")
+	}
+}
