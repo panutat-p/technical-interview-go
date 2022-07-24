@@ -30,26 +30,26 @@ func IsPairSum(sl []int, num int) int {
 
 type MySet map[int]struct{}
 
-func (s *MySet) Contains(num int) bool {
-	_, ok := (*s)[num]
+func (s MySet) Contains(num int) bool {
+	_, ok := s[num]
 	return ok
 }
 
-func (s *MySet) Add(num int) {
-	(*s)[num] = struct{}{}
+func (s MySet) Add(num int) {
+	s[num] = struct{}{}
 }
 
-func (s *MySet) Remove(num int) {
-	delete(*s, num)
+func (s MySet) Remove(num int) {
+	delete(s, num)
 }
 
-func (s *MySet) Print() {
-	if len(*s) == 0 {
+func (s MySet) Print() {
+	if len(s) == 0 {
 		fmt.Println("🟧 set is empty")
 		return
 	}
 	sb := strings.Builder{}
-	for k := range *s {
+	for k := range s {
 		sb.WriteString(fmt.Sprintf("%v, ", k))
 	}
 	fmt.Println("🟧 set:", sb.String())
