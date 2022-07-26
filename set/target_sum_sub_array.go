@@ -1,4 +1,4 @@
-package hashmap
+package set
 
 import "fmt"
 
@@ -8,26 +8,17 @@ import "fmt"
 // arr = [11,9,7,5,3,2], target = 9		true
 // arr = [11,9,7,5,3,2], target = 22	false
 func SumOfSubArray(arr []int, n int) bool {
-	for _, v := range arr {
-		if v == n {
-			return true
-		}
-	}
-
 	var sum int
-	m := make(map[int]int)
+	set := make(map[int]struct{})
 	for _, v := range arr {
-		fmt.Println(m)
+		fmt.Println(set)
 		sum += v
-		if _, ok := m[sum-n]; ok {
+		if _, ok := set[sum-n]; ok {
+			fmt.Println("🟩 sum", sum, "- target", n, "= excess", sum-n)
 			return true
 		}
 
-		if _, ok := m[sum]; ok {
-			m[sum] += 1
-		} else {
-			m[sum] = 1
-		}
+		set[sum] = struct{}{}
 	}
 	return false
 }
