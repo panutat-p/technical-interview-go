@@ -2,31 +2,34 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/panutat-p/technical-interview-go/pkg"
 )
 
 func main() {
-	fmt.Println("🟩 want 2, got", CheckPairSum([]int{1, 1, 3, 7, -3, 1}, 4))
-	fmt.Println("🟩 want 2, got", CheckPairSum([]int{3, 2, 3, 4, -3, 1}, 6))
-	fmt.Println("🟩 want 2, got", CheckPairSum([]int{5, 1, 4, -100, 10, -5}, 5))
-	fmt.Println("🟩 want 6, got", CheckPairSum([]int{1, 9, 2, 8, 3, 7, 4, 6, 5, 5, 13, 14, 11, 13, -1}, 10))
+	fmt.Println("🟩 want 5, got", LargestSum([]int{-4, -5, 5}))
+	fmt.Println("🟩 want 25, got", LargestSum([]int{1, 2, -1, 3, 10, 10, -10 - 1}))
 }
 
-func CheckPairSum(sl []int, num int) int {
-	if len(sl) < 2 {
-		return -1
+func LargestSum(nums []int) int {
+	if len(nums) == 0 {
+		return 0
 	}
 
-	count := 0
-	s := pkg.NewSet()
-	for _, v := range sl {
-		target := num - v
-		if s.IsContain(v) {
-			count += 1
-		} else {
-			s.Add(target)
-		}
+	var (
+		sum  int
+		best int
+	)
+	for _, v := range nums {
+		sum = Max(sum+v, v)
+		best = Max(sum, best)
 	}
-	return count
+
+	return best
+}
+
+func Max(a, b int) int {
+	if a > b {
+		return a
+	}
+
+	return b
 }
