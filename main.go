@@ -2,10 +2,27 @@ package main
 
 import (
 	"fmt"
-	"github.com/panutat-p/technical-interview-go/pkg"
 )
 
 func main() {
-	fmt.Println("🟩 want -2, got", pkg.Min(-2, 8))
-	fmt.Println("🟩 want 10, got", pkg.Max(-1, 10))
+	sl := []int{0, 1, 2, 3}
+	fmt.Println("sl: ", sl)
+
+	var (
+		sl1 = make([]int, len(sl))
+		sl2 = make([]int, len(sl))
+	)
+
+	copy(sl1, sl)
+	sl1 = sl1[:1]
+	fmt.Println("sl1:", sl1)
+
+	copy(sl2, sl)
+	sl2 = sl2[2:]
+	fmt.Println("sl2:", sl2)
+	sl1 = append(sl1, sl2...)
+	fmt.Println("sl1:", sl1)
+	sl1 = append(sl1, sl2...)
+	fmt.Println("sl1:", sl1)
+	fmt.Println("sl: ", sl)
 }
