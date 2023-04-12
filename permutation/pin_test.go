@@ -5,27 +5,27 @@ import (
 	"testing"
 )
 
-func TestGenerate_two_char(t *testing.T) {
-	want := [][]string{
-		{"1", "2"},
-		{"2", "1"},
+func TestGenerate1_two_char(t *testing.T) {
+	want := []string{
+		"12",
+		"21",
 	}
-	got := Generate1([]string{"1", "2"})
+	got := Generate1("12")
 	if !reflect.DeepEqual(got, want) {
 		t.Error("want", want, "but got", got)
 	}
 }
 
-func TestGenerate_three_char(t *testing.T) {
-	want := [][]string{
-		{"1", "2", "3"},
-		{"1", "3", "2"},
-		{"2", "1", "3"},
-		{"2", "3", "1"},
-		{"3", "1", "2"},
-		{"3", "2", "1"},
+func TestGenerate1_three_char(t *testing.T) {
+	want := []string{
+		"123",
+		"132",
+		"213",
+		"231",
+		"312",
+		"321",
 	}
-	got := Generate1([]string{"1", "2", "3"})
+	got := Generate1("123")
 	if !reflect.DeepEqual(got, want) {
 		t.Error("want", want, "but got", got)
 	}

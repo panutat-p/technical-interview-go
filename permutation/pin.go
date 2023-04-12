@@ -2,38 +2,33 @@ package permutation
 
 // Generate1
 // sorted order
-// https://www.geeksforgeeks.org/generate-all-the-permutation-of-a-list-in-python/
-func Generate1(perm []string) [][]string {
-	if len(perm) == 0 {
-		return [][]string{}
+// https://www.geeksforgeeks.org/generate-all-the-permutation-of-a-list-in-python
+// '123' 👉 '1' + '23' 👉 '1' + '2' + '3'
+//
+//	              👉 '1' + '3' + '2'
+//	👉 '2' + '13' 👉 '2' + '1' + '3'
+//	              👉 '2' + '3' + '1'
+func Generate1(base string) []string {
+	if len(base) == 0 {
+		return []string{}
 	}
 
-	if len(perm) == 1 {
-		return [][]string{perm}
+	if len(base) == 1 {
+		return []string{base}
 	}
 
 	var (
-		ans [][]string
+		ans []string
 	)
 
-	for i := range perm {
-		m := perm[i]
+	for i := range base {
+		pin := base[i : i+1] // pin char at index 0, 1, 2, ...
 
-		var (
-			tmp []string
-		)
-
-		tmp = append(tmp, perm[:i]...)
-		tmp = append(tmp, perm[i+1:]...)
+		tmp := base[:i] + base[i+1:]
 
 		for _, v := range Generate1(tmp) {
-			var (
-				sub []string
-			)
-			sub = append(sub, m)
-			sub = append(sub, v...)
-
-			ans = append(ans, sub)
+			perm := pin + v
+			ans = append(ans, perm)
 		}
 	}
 	return ans
