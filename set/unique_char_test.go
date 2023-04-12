@@ -3,15 +3,17 @@ package set
 import "testing"
 
 func TestUniqueChar(t *testing.T) {
-	r := UniqueChar("abc")
-	if !r {
-		t.Error("want true")
+	want := true
+	got := UniqueChar("abc")
+	if got != want {
+		t.Error("want", want, "but got", got)
 	}
 }
 
 func TestUniqueChar2(t *testing.T) {
-	r := UniqueChar("abcdea")
-	if r {
-		t.Error("expect false")
+	want := false
+	got := UniqueChar("abcdea")
+	if got != want {
+		t.Error("want", want, "but got", got)
 	}
 }
