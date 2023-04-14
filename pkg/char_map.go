@@ -11,17 +11,13 @@ func NewCharMap() CharMap {
 	return CharMap{}
 }
 
-func (m CharMap) Has(s string) bool {
-	_, ok := m[s]
+func (m CharMap) Has(str string) bool {
+	_, ok := m[str]
 	return ok
 }
 
-func (m CharMap) Add(s string) {
-	if _, ok := m[s]; ok {
-		m[s] += 1
-	} else {
-		m[s] = 1
-	}
+func (m CharMap) Add(str string) {
+	m[str] += 1
 }
 
 func (m CharMap) Keys() []string {
