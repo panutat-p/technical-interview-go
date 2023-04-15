@@ -1,6 +1,6 @@
 package sqrt
 
-func Sqrt(num int) int {
+func Get2(num int) int {
 	if num == 1 {
 		return 1
 	}
