@@ -33,3 +33,11 @@ func TestGet2_16(t *testing.T) {
 		t.Error("want", want, "but got", got)
 	}
 }
+
+func TestGet2_rounded_down_to_the_nearest_integer(t *testing.T) {
+	want := 1
+	got := Get2(2)
+	if got != want {
+		t.Error("want", want, "but got", got)
+	}
+}
