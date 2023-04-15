@@ -21,13 +21,13 @@ func Check1(s1 string, s2 string) bool {
 	var (
 		m = make(map[string]int)
 	)
-	for _, i32 := range s1 {
-		c := string(i32)
+	for _, b := range s1 {
+		c := string(b)
 		m[c] += 1
 	}
 
-	for _, i32 := range s2 {
-		c := string(i32)
+	for _, b := range s2 {
+		c := string(b)
 		m[c] -= 1
 		if m[c] == 0 {
 			delete(m, c)

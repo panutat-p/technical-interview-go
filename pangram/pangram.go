@@ -1,19 +1,20 @@
 package pangram
 
 import (
+	"fmt"
 	"strings"
 )
 
 func IsPangram(word string) bool {
 	var (
-		m = make(map[string]int)
+		m = make(map[rune]int)
 	)
 
-	for _, i32 := range strings.ToLower(word) {
-		if i32 >= 97 && i32 <= 122 {
-			m[string(i32)] += 1
+	for _, r := range strings.ToLower(word) {
+		if r >= 97 && r <= 122 {
+			m[r] += 1
 		}
 	}
-
+	fmt.Println(m)
 	return len(m) == 26
 }

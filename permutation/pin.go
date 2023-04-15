@@ -19,8 +19,8 @@ func Generate1(word string) []string {
 		ans []string
 	)
 
-	for i, i32 := range word {
-		c := string(i32)
+	for i, r := range word {
+		c := string(r)
 		rest := pop(word, i)
 
 		for _, e := range Generate1(rest) {
