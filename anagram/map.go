@@ -1,37 +1,28 @@
 package anagram
 
 import (
-	"fmt"
-	"strings"
+	"unicode"
 )
 
 func Check1(s1 string, s2 string) bool {
-	s1 = strings.ReplaceAll(s1, " ", "")
-	s1 = strings.ToLower(s1)
-	s2 = strings.ReplaceAll(s2, " ", "")
-	s2 = strings.ToLower(s2)
-
-	fmt.Println(s1)
-	fmt.Println(s2)
-
-	if len(s1) != len(s2) {
-		return false
-	}
-
 	var (
-		m = make(map[string]int)
+		m = make(map[rune]int)
 	)
-	for _, b := range s1 {
-		c := string(b)
-		m[c] += 1
-	}
-
-	for _, b := range s2 {
-		c := string(b)
-		m[c] -= 1
-		if m[c] == 0 {
-			delete(m, c)
+	for _, r := range s1 {
+		if unicode.IsLetter(r) {
+			m[unicode.ToLower(r)] += 1
 		}
 	}
+
+	for _, r := range s2 {
+		if unicode.IsLetter(r) {
+			k := unicode.ToLower(r)
+			m[k] -= 1
+			if m[k] == 0 {
+				delete(m, k)
+			}
+		}
+	}
+
 	return len(m) == 0
 }
