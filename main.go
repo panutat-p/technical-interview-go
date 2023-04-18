@@ -3,31 +3,41 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("want 0 got", Longest(""))
-	fmt.Println("want 4 got", Longest("aabb"))
-	fmt.Println("want 7 got", Longest("abccccdd"))
+	//fmt.Println("want 12, 21 got", permutation("12"))
+	fmt.Println("want 123, 132, 213, 231, 312, 321 got", permutation("1234"))
 }
 
-func Longest(str string) int {
-	if len(str) < 2 {
-		return len(str)
+func permutation(input string) []string {
+	if len(input) == 0 {
+		return []string{}
+	}
+
+	if len(input) == 1 {
+		return []string{input}
 	}
 
 	var (
-		m   = make(map[rune]int)
-		ans int
+		ans []string
 	)
 
-	for _, r := range str {
-		m[r] += 1
-		if m[r]%2 == 0 {
-			ans += 2
+	sl := []rune(input)
+	for i, r := range input {
+		rest := pop(sl, i)
+		// tmp := append([]rune{r}, rest...)
+		for _, s := range permutation(string(rest)) {
+			tmp := string(r) + s
+			ans = append(ans, tmp)
 		}
 	}
 
-	if len(str) == ans {
-		return ans
-	}
+	return ans
+}
 
-	return ans + 1 // a single character can be placed at the center
+func pop(sl []rune, idx int) []rune {
+	var (
+		rest = make([]rune, 0, len(sl))
+	)
+	rest = append(rest, sl[:idx]...)
+	rest = append(rest, sl[idx+1:]...)
+	return rest
 }
