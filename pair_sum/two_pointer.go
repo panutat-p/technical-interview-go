@@ -11,7 +11,6 @@ func Sum1(nums []int, target int) []int {
 		j = len(nums) - 1
 	)
 	for i < j {
-		// do
 		sum := nums[i] + nums[j]
 		if sum > target {
 			j -= 1
