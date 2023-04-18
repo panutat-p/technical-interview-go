@@ -13,7 +13,7 @@ func TestSum1_equal_6(t *testing.T) {
 	}
 }
 
-func TestSum2_equal_11(t *testing.T) {
+func TestSum1_equal_11(t *testing.T) {
 	want := []int{0, 2}
 	got := Sum1([]int{2, 5, 9, 11}, 11)
 	if !reflect.DeepEqual(want, got) {
