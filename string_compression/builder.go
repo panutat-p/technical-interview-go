@@ -1,13 +1,16 @@
-package other
+package string_compression
 
 import (
 	"fmt"
 	"strings"
 )
 
-func Compress(s string) string {
+func Compress2(s string) string {
 	sb := strings.Builder{}
-	var count = 1
+
+	var (
+		count = 1
+	)
 	for i := 1; i <= len(s); i++ {
 		if i == len(s) {
 			sb.WriteString(fmt.Sprintf("%v%d", string(s[i-1]), count))
