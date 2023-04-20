@@ -1,6 +1,5 @@
 package sqrt
 
-// Get1 ^
 func Get1(num int) int {
 	var (
 		left  int
