@@ -8,11 +8,7 @@ func Compress1(input string) string {
 		ans string
 	)
 	for _, r := range input {
-		if _, ok := m[r]; ok {
-			m[r] += 1
-		} else {
-			m[r] = 1
-		}
+		m[r] += 1
 	}
 
 	for k, v := range m {
