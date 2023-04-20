@@ -1,5 +1,7 @@
 package hashmap
 
+import "math"
+
 func Find2(arr1 []int, arr2 []int) int {
 	for _, v := range arr1 {
 		idx := index(arr2, v)
@@ -11,7 +13,7 @@ func Find2(arr1 []int, arr2 []int) int {
 			arr2 = pop(arr2, idx)
 		}
 	}
-	return -1
+	return math.MinInt
 }
 
 func index(arr []int, num int) int {
