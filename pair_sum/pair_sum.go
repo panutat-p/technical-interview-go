@@ -1,17 +1,21 @@
-package set
+package pair_sum
 
 import (
 	"fmt"
 	"strings"
 )
 
-func IsPairSum(sl []int, num int) int {
+// NumberOfPairs
+// return: number of pairs
+func NumberOfPairs(sl []int, num int) int {
 	if len(sl) < 2 {
 		return 0
 	}
 
-	var count int
-	set := MySet{}
+	var (
+		count int
+		set   = Set{}
+	)
 	for _, v := range sl {
 		diff := num - v
 		if set.Contains(diff) {
@@ -28,24 +32,24 @@ func IsPairSum(sl []int, num int) int {
 	return count
 }
 
-type MySet map[int]struct{}
+type Set map[int]struct{}
 
-func (s MySet) Contains(num int) bool {
+func (s Set) Contains(num int) bool {
 	_, ok := s[num]
 	return ok
 }
 
-func (s MySet) Add(num int) {
+func (s Set) Add(num int) {
 	s[num] = struct{}{}
 }
 
-func (s MySet) Remove(num int) {
+func (s Set) Remove(num int) {
 	delete(s, num)
 }
 
-func (s MySet) Print() {
+func (s Set) Print() {
 	if len(s) == 0 {
-		fmt.Println("🟧 set is empty")
+		fmt.Println("set is empty")
 		return
 	}
 	sb := strings.Builder{}

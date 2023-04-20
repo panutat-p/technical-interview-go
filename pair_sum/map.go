@@ -1,20 +1,25 @@
 package pair_sum
 
+import "fmt"
+
 // Sum2
 // find a pair in the array whose sum is equal to the given target
-// Let’s say during our iteration we are at number ‘X’, so we need to find ‘Y’ such that “X+Y=target”
-// return: indices
+// X+Y = Target, search for Y = Target−X, If not found, insert X so that we can search it for the later
+// return: array of index
 func Sum2(nums []int, target int) []int {
 	var (
 		m = make(map[int]int) // k:v = num: index
 	)
-	for i, n := range nums {
-		if _, ok := m[n]; ok {
-			return []int{m[n], i}
+	for i, e := range nums {
+		diff := target - e
+		if _, ok := m[diff]; ok {
+			fmt.Printf("index (%v, %v) ", m[diff], i)
+			fmt.Printf("value (%v, %v)\n", diff, e)
+			return []int{m[diff], i}
 		} else {
-			// n does not exist
-			diff := target - n
-			m[diff] = i // store index
+			// diff does not exist
+			// store current element and current index
+			m[e] = i
 		}
 	}
 	return []int{}
