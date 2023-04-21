@@ -10,7 +10,8 @@ func Check1(s1 string, s2 string) bool {
 	)
 	for _, r := range s1 {
 		if unicode.IsLetter(r) {
-			m[unicode.ToLower(r)] += 1
+			k := unicode.ToLower(r)
+			m[k] += 1
 		}
 	}
 
