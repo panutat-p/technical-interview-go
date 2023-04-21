@@ -3,52 +3,28 @@ package main
 import "fmt"
 
 func main() {
-	FindPairSum([]int{6, 4, 2, 1, 3}, 6)
-	FindPairSum([]int{9, 11, 2, 5}, 11)
+	sl := []int{0, 1, 2, 3, 4, 5}
+	fmt.Printf("sl: %v at %p\n", sl, sl)
+
+	sl2 := pop(sl, 1)
+	fmt.Printf("sl: %v at %p\n", sl, sl)
+	fmt.Printf("sl2: %v at %p\n", sl2, sl2)
 }
 
-func FindPairSum(nums []int, target int) {
-	nums = sort(nums)
-
-	var (
-		i int
-		j = len(nums) - 1
-	)
-	for i < j {
-		if nums[i]+nums[j] < target {
-			i += 1
-		} else if nums[i]+nums[j] > target {
-			j -= 1
-		} else {
-			fmt.Printf("index (%v, %v) ", i, j)
-			fmt.Printf("value (%v, %v)\n", nums[i], nums[j])
-			return
-		}
-	}
+func insert(nums []int, e int, idx int) []int {
+	left := nums[:idx]
+	right := append([]int{e}, nums[idx:]...)
+	return append(left, right...)
 }
 
-func sort(nums []int) []int {
-	if len(nums) == 0 {
-		return []int{}
-	}
-	if len(nums) == 1 {
-		return nums
-	}
+func prepend(nums []int, e int) []int {
+	return append([]int{e}, nums...)
+}
 
-	pivot := nums[0]
+func pop(nums []int, idx int) []int {
 	var (
-		left  []int
-		right []int
+		result = make([]int, 0, len(nums)-1)
 	)
-	for _, e := range nums[1:] {
-		if pivot > e {
-			left = append(left, e)
-		} else {
-			right = append(right, e)
-		}
-	}
-
-	nums = append(sort(left), pivot)
-	nums = append(nums, sort(right)...)
-	return nums
+	result = append(result, nums[:idx]...)
+	return append(result, nums[idx+1:]...)
 }
