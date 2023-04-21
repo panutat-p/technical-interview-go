@@ -4,6 +4,10 @@ import (
 	"unicode"
 )
 
+// Check2
+// https://stackoverflow.com/a/13215807
+// https://stackoverflow.com/a/4237875
+// https://stackoverflow.com/a/26070946
 func Check2(s1 string, s2 string) bool {
 	var (
 		p1 int64 = 1
