@@ -1,7 +1,5 @@
 package group_anagrams
 
-import "fmt"
-
 // Group1
 // group the anagrams together
 // return: count of group of string in any order
@@ -39,6 +37,5 @@ func count(str string) [26]int {
 	for _, r := range str {
 		ret[r-'a'] += 1
 	}
-	fmt.Println("count", ret)
 	return ret
 }
