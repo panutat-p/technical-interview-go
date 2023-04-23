@@ -1,9 +1,9 @@
 package longest_palindrome
 
-// Longest
+// Longest1
 // Letters are case sensitive, for example, "Aa" is not considered a palindrome
 // https://leetcode.com/problems/longest-palindrome
-func Longest(str string) int {
+func Longest1(str string) int {
 	if len(str) < 2 {
 		return len(str)
 	}
