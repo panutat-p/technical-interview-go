@@ -4,7 +4,7 @@ import "fmt"
 
 // Group1
 // group the anagrams together
-// return: alphabet of group of string in any order
+// return: count of group of string in any order
 // https://leetcode.com/problems/group-anagrams
 func Group1(words []string) [][]string {
 	if len(words) == 0 {
@@ -16,28 +16,29 @@ func Group1(words []string) [][]string {
 	}
 
 	var (
-		m   = make(map[[26]int]string)
-		ans [][]string
+		m = make(map[[26]int][]string)
 	)
 	for _, e := range words {
-		alp := alphabet(e)
-		if _, ok := m[alp]; ok {
-			ans = append(ans, []string{m[alp], e})
-			delete(m, alp)
-		} else {
-			m[alp] = e
-		}
+		key := count(e)
+		m[key] = append(m[key], e)
 	}
-	fmt.Println("m", m)
+
+	var (
+		ans [][]string
+	)
+	for _, k := range m {
+		ans = append(ans, k)
+	}
 	return ans
 }
 
-func alphabet(str string) [26]int {
+func count(str string) [26]int {
 	var (
-		arr [26]int
+		ret [26]int
 	)
 	for _, r := range str {
-		arr[r-'a'] += 1
+		ret[r-'a'] += 1
 	}
-	return arr
+	fmt.Println("count", ret)
+	return ret
 }
