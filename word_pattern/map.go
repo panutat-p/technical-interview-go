@@ -4,6 +4,9 @@ import (
 	"strings"
 )
 
+// Check1
+// 290. Word Pattern
+// https://leetcode.com/problems/word-pattern
 func Check1(pattern, input string) bool {
 	var (
 		set   = make(map[rune]string)
