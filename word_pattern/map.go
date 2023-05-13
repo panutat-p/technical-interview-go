@@ -9,7 +9,8 @@ import (
 // https://leetcode.com/problems/word-pattern
 func Check1(pattern, input string) bool {
 	var (
-		set   = make(map[rune]string)
+		m1    = make(map[rune]string)
+		m2    = make(map[string]rune)
 		sl    = []rune(pattern)
 		words = strings.Split(input, " ")
 	)
@@ -21,13 +22,15 @@ func Check1(pattern, input string) bool {
 	for i := 0; i < len(sl); i += 1 {
 		r := sl[i]
 		word := words[i]
-		v, ok := set[r]
-		if ok {
-			if v != word {
-				return false
-			}
-		} else {
-			set[r] = word
+		m1[r] = word
+		m2[word] = r
+	}
+
+	for i := 0; i < len(sl); i += 1 {
+		r := sl[i]
+		word := words[i]
+		if m1[r] != word || m2[word] != r {
+			return false
 		}
 	}
 
