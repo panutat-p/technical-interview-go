@@ -3,28 +3,38 @@ package main
 import "fmt"
 
 func main() {
-	sl := []int{0, 1, 2, 3, 4, 5}
-	fmt.Printf("sl: %v at %p\n", sl, sl)
-
-	sl2 := pop(sl, 1)
-	fmt.Printf("sl: %v at %p\n", sl, sl)
-	fmt.Printf("sl2: %v at %p\n", sl2, sl2)
-}
-
-func insert(nums []int, e int, idx int) []int {
-	left := nums[:idx]
-	right := append([]int{e}, nums[idx:]...)
-	return append(left, right...)
-}
-
-func prepend(nums []int, e int) []int {
-	return append([]int{e}, nums...)
-}
-
-func pop(nums []int, idx int) []int {
 	var (
-		result = make([]int, 0, len(nums)-1)
+		sl Slice
 	)
-	result = append(result, nums[:idx]...)
-	return append(result, nums[idx+1:]...)
+
+	sl.Append(1)
+	sl.Append(2)
+	sl.Append(3)
+	sl.Append(4)
+	fmt.Println(len(sl), cap(sl), sl)
+	sl.Pop(len(sl) - 1)
+	fmt.Println(len(sl), cap(sl), sl)
+}
+
+type Slice []int
+
+func (s *Slice) Append(e int) {
+	*s = append(*s, e)
+}
+
+func (s *Slice) Prepend(e int) {
+	*s = append([]int{e}, *s...)
+}
+
+func (s *Slice) Insert(e, idx int) {
+	left := (*s)[:idx]
+	right := (*s)[idx:]
+	*s = append(left, e)
+	*s = append(*s, right...)
+}
+
+func (s *Slice) Pop(idx int) int {
+	ret := (*s)[idx]
+	*s = append((*s)[:idx], (*s)[idx+1:]...)
+	return ret // same backing longest_parking_roof
 }
