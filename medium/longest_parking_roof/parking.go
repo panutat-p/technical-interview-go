@@ -16,20 +16,20 @@ import (
 // Consider the car parking lot as zero indexed array.
 // Given a list of positions occupied by cars.
 // Find the min length of roof required to cover k cars.
+// 0 1 2 3 4
+// o o o _ _
+// _ o o o _
+// _ _ o o o
 // https://leetcode.com/discuss/interview-question/1354480/amazon-oa
 func ParkingRoof(cars []int, k int) int {
 	sort.Ints(cars)
-	// 0 1 2 3 4
-	// o o o _ _
-	// _ o o o _
-	// _ _ o o o
-	best := cars[k-1] - cars[0] + 1
+	shortest := cars[k-1] - cars[0] + 1
 	for i := 1; i < len(cars)-k+1; i += 1 {
 		tmp := cars[i+k-1] - cars[i] + 1
 		fmt.Println("tmp:", tmp)
-		best = Min(tmp, best)
+		shortest = Min(tmp, shortest)
 	}
-	return best
+	return shortest
 }
 
 // alternative, declare best := math.MaxInt, start loop with i:=0
