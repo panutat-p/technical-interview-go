@@ -1,12 +1,12 @@
 package remove_one_digit_from_string
 
-// RemoveDigitStringComparison
+// StringComparison
 // Input: number = 123, digit = 3    ->  Output: 12
 // Input: number = 1231, digit = 1   ->  Output: 231
 // Input: number = 551, digit = 5    ->  Output: 51
 // Input: number = -4674, digit = 4  ->  Output: -467
 // Input: number = 5552, digit = 5   ->  Output: 552
-func RemoveDigitStringComparison(num string, inputDigit byte) string {
+func StringComparison(num string, inputDigit byte) string {
 	var (
 		rsl   = []rune(num)
 		sl    []string
