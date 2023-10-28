@@ -2,34 +2,47 @@ package digit_anagram_pair
 
 import "testing"
 
-func TestDigitArray_simple(t *testing.T) {
-	want := 4
-	got := DigitArray([]int{25, 35, 872, 228, 53, 278, 872})
-	if got != want {
-		t.Error("\nwant", want, "\ngot ", got)
-	}
-}
-
-func TestDigitArray_no(t *testing.T) {
-	want := 0
-	got := DigitArray([]int{30, 72, 3, 227})
-	if got != want {
-		t.Error("\nwant", want, "\ngot ", got)
-	}
-}
-
-func TestDigitArray_all_one(t *testing.T) {
-	want := 10
-	got := DigitArray([]int{1, 1, 1, 1, 1})
-	if got != want {
-		t.Error("\nwant", want, "\ngot ", got)
-	}
-}
-
-func TestDigitArray_zero(t *testing.T) {
-	want := 1
-	got := DigitArray([]int{0, 5, 50, 7, 0, 550, 500, 55, 11})
-	if got != want {
-		t.Error("\nwant", want, "\ngot ", got)
-	}
+func TestDigitArray(t *testing.T) {
+	t.Run("4 pairs", func(t *testing.T) {
+		want := 4
+		got := DigitArray([]int{25, 35, 872, 228, 53, 278, 872})
+		if got != want {
+			t.Error("\nwant", want, "\ngot ", got)
+		}
+	})
+	t.Run("no pair", func(t *testing.T) {
+		want := 0
+		got := DigitArray([]int{30, 72, 3, 227})
+		if got != want {
+			t.Error("\nwant", want, "\ngot ", got)
+		}
+	})
+	t.Run("all one", func(t *testing.T) {
+		want := 10
+		got := DigitArray([]int{1, 1, 1, 1, 1})
+		if got != want {
+			t.Error("\nwant", want, "\ngot ", got)
+		}
+	})
+	t.Run("zero pair", func(t *testing.T) {
+		want := 1
+		got := DigitArray([]int{0, 5, 50, 7, 0, 550, 500, 55, 11})
+		if got != want {
+			t.Error("\nwant", want, "\ngot ", got)
+		}
+	})
+	t.Run("high numbers", func(t *testing.T) {
+		want := 2
+		got := DigitArray([]int{327559384, 922465168, 741150091, 221559429, 903194881, 401907115, 519492225})
+		if got != want {
+			t.Error("\nwant", want, "\ngot ", got)
+		}
+	})
+	t.Run("big numbers", func(t *testing.T) {
+		want := 2
+		got := DigitArray([]int{692933160, 375713763, 397782110, 157470990, 235696427, 419545899, 246659723, 585206002, 731596935, 150030449, 569460123, 801563102, 287922684, 390222286, 820505620, 41869933, 666424220, 568085358, 203449619, 20313343})
+		if got != want {
+			t.Error("\nwant", want, "\ngot ", got)
+		}
+	})
 }
