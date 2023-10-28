@@ -4,7 +4,7 @@ import (
 	"strconv"
 )
 
-func Count1(nums []int) int {
+func SortedDigits(nums []int) int {
 	var (
 		m = make(map[string]int)
 	)

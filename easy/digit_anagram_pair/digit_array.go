@@ -1,6 +1,6 @@
 package digit_anagram_pair
 
-func Count2(nums []int) int {
+func DigitArray(nums []int) int {
 	var (
 		m = make(map[[10]int]int)
 	)
