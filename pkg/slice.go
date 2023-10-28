@@ -29,5 +29,5 @@ func (s *Slice) Insert(e, idx int) {
 func (s *Slice) Pop(idx int) int {
 	ret := (*s)[idx]
 	*s = append((*s)[:idx], (*s)[idx+1:]...)
-	return ret // same backing longest_parking_roof
+	return ret // same backing array
 }

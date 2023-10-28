@@ -3,9 +3,9 @@ package pair_sum
 import "fmt"
 
 // Sum2
-// find a pair in the longest_parking_roof whose sum is equal to the given target
+// find a pair in the array whose sum is equal to the given target
 // X+Y = Target, search for Y = Target−X, If not found, insert X so that we can search it for the later
-// return: longest_parking_roof of index
+// return: array of index
 func Sum2(nums []int, target int) []int {
 	var (
 		m = make(map[int]int) // k:v = num: index

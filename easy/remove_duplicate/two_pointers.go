@@ -1,7 +1,7 @@
 package remove_duplicate
 
 // Remove1
-// Given an longest_parking_roof of sorted numbers, remove all duplicate number instances from it in-place
+// Given an array of sorted numbers, remove all duplicate number instances from it in-place
 // The relative order of the elements should be kept the same
 // Should not use any extra space
 func Remove1(nums []int) []int {

@@ -1,7 +1,7 @@
 package pair_sum
 
 // Sum1
-// find a pair in the longest_parking_roof whose sum is equal to the given target
+// find a pair in the array whose sum is equal to the given target
 // return: indices
 func Sum1(nums []int, target int) []int {
 	sort(nums)
