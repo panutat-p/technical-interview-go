@@ -14,7 +14,7 @@ func SignificantDigit(inputNumber string, inputDigit byte) string {
 		if sl[i] == digit {
 			idx = i
 			if i < len(inputNumber)-1 && sl[i] < sl[i+1] {
-				return string(slices.Delete(sl, i, i+1))
+				break
 			}
 		}
 	}
