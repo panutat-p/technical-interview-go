@@ -1,4 +1,4 @@
-package compression
+package compress_byte_slice
 
 import (
 	"strconv"

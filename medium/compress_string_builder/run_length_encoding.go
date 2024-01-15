@@ -1,13 +1,13 @@
-package string_compression
+package compress_string_builder
 
 import (
 	"strconv"
 	"strings"
 )
 
-// Compress2
+// CompressString
 // https://www.geeksforgeeks.org/run-length-encoding
-func Compress2(input string) string {
+func CompressString(input string) string {
 	sl := []rune(input)
 
 	var (
