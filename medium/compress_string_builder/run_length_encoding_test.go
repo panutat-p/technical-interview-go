@@ -13,7 +13,7 @@ func TestCompressString(t *testing.T) {
 		{
 			name:  "single character",
 			given: "a",
-			want:  "a1",
+			want:  "a",
 		},
 		{
 			name:  "multiple characters",
