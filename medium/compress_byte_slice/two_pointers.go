@@ -7,6 +7,8 @@ import (
 // Compress
 // 443. String Compression
 // https://leetcode.com/problems/string-compression
+//
+// Run-length encoding (RLE) algorithm
 func Compress(input []byte) int {
 	// loop all character
 	var (

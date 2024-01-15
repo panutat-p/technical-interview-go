@@ -1,13 +1,14 @@
-package compress_string_builder
+package compress_string
 
 import (
 	"strconv"
 	"strings"
 )
 
-// CompressString
+// Compress
+// Run-length encoding (RLE) algorithm
 // https://www.geeksforgeeks.org/run-length-encoding
-func CompressString(input string) string {
+func Compress(input string) string {
 	sl := []rune(input)
 	char := sl[0]
 	count := 1
