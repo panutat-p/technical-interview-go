@@ -1,9 +1,5 @@
 package largest_continuous_sum
 
-import (
-	"golang.org/x/exp/constraints"
-)
-
 // LargestSumKadane
 // 53. Maximum Subarray
 // https://leetcode.com/problems/maximum-subarray
@@ -15,16 +11,16 @@ func LargestSumKadane(nums []int) int {
 
 	var (
 		sum int
-		ans int
+		ret = nums[0]
 	)
-	for _, v := range nums {
-		sum = Max(v, sum+v) // drop minus portion from front
-		ans = Max(ans, sum) // drop minus portion from back
+	for _, e := range nums {
+		sum = Max(e, sum+e)
+		ret = Max(sum, ret)
 	}
-	return ans
+	return ret
 }
 
-func Max[T constraints.Ordered](a, b T) T {
+func Max(a, b int) int {
 	if a > b {
 		return a
 	}
