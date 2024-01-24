@@ -4,10 +4,10 @@ import (
 	"strings"
 )
 
-// Check1
+// TwoMaps
 // 290. Word Pattern
 // https://leetcode.com/problems/word-pattern
-func Check1(pattern, input string) bool {
+func TwoMaps(pattern, input string) bool {
 	var (
 		m1    = make(map[rune]string)
 		m2    = make(map[string]rune)
